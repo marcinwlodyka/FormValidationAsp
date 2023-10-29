@@ -1,0 +1,73 @@
+﻿@using static WebApplication1.Models.Account;
+@model WebApplication1.Models.Account
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Account</h1>
+
+<form asp-controller="Account" asp-action="Register" method="post" class="d-flex flex-column gap-2 align-items-start">
+    <div asp-validation-summary="All"></div>
+
+    <div class="d-flex gap-2 align-items-center">
+        <label asp-for="FirstName">Your name:</label>
+
+        <input asp-for="FirstName" />
+    </div>
+
+    <div class="d-flex gap-2 align-items-center">
+        <label asp-for="Surname">Your name:</label>
+
+        <input asp-for="Surname" />
+    </div>
+
+    <div class="d-flex gap-2 align-items-center">
+        <label asp-for="Email">Your name:</label>
+
+        <input asp-for="Email" />
+    </div>
+
+    <div class="d-flex gap-2 align-items-center">
+        <label asp-for="Password">Your name:</label>
+
+        <input asp-for="Password" />
+    </div>
+
+    <div class="d-flex gap-2 align-items-center">
+        <label asp-for="ConfirmPassword">Your name:</label>
+
+        <input asp-for="ConfirmPassword" />
+    </div>
+
+    <div class="d-flex gap-2 align-items-center">
+        <label asp-for="PhoneNumber">Your name:</label>
+
+        <input asp-for="PhoneNumber" />
+    </div>
+
+    <div class="d-flex gap-2 align-items-center">
+        <label asp-for="Age">Your name:</label>
+
+        <input asp-for="Age" />
+    </div>
+
+    <div class="d-flex gap-2 align-items-center">
+        <label asp-for="City">Your name:</label>
+
+        <select asp-for="City" asp-items="Html.GetEnumSelectList<CityEnum>()"></select>
+    </div>
+
+    <input type="submit" value="Zarejestruj się" />
+</form>
+
+<button onclick="clear">Wyczyść</button>
+
+<script>
+const inputs = document.querySelectorAll('input')
+
+const clear = () => {
+    inputs.forEach(el => {
+        el.value = ''
+    })
+}
+</script>
