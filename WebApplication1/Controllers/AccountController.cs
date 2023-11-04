@@ -10,11 +10,14 @@ public class AccountController : Controller
         return View();
     }
 
+    public IActionResult Success()
+    {
+        return View();
+    }
+
     [HttpPost]
     public IActionResult Register(Account account)
     {
-        Console.WriteLine(account);
-
-        return View("Index");
+        return View(ModelState.IsValid ? "Success" : "Index");
     }
 }
